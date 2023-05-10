@@ -18,6 +18,7 @@ package org.springframework.samples.petclinic.vet;
 
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -71,16 +72,27 @@ class VetControllerTests {
 	void setup() {
 		given(this.vets.findAll()).willReturn(Lists.newArrayList(james(), helen()));
 		given(this.vets.findAll(any(Pageable.class)))
-				.willReturn(new PageImpl<Vet>(Lists.newArrayList(james(), helen())));
+			.willReturn(new PageImpl<Vet>(Lists.newArrayList(james(), helen())));
 
 	}
 
 	@Test
 	void testShowVetListHtml() throws Exception {
 
-		mockMvc.perform(MockMvcRequestBuilders.get("/vets.html?page=1")).andExpect(status().isOk())
-				.andExpect(model().attributeExists("listVets")).andExpect(view().name("vets/vetList"));
+		mockMvc.perform(MockMvcRequestBuilders.get("/vets.html?page=1"))
+			.andExpect(status().isOk())
+			.andExpect(model().attributeExists("listVets"))
+			.andExpect(view().name("vets/vetList"));
 
+	}
+
+	@Test
+	@Disabled
+	void testShowResourcesVetList() throws Exception {
+		ResultActions actions = mockMvc.perform(get("/vets").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk());
+		actions.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+			.andExpect(jsonPath("$.vetList[0].id").value(1));
 	}
 
 }
