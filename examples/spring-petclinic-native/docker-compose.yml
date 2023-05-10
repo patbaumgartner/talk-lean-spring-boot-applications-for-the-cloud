@@ -1,36 +1,23 @@
 version: "2.2"
 
 services:
-  spring-petclinic-native:
-    image: spring-petclinic-native:3.0.0-SNAPSHOT
+  mysql:
+    image: mysql:8.0
     ports:
-      - "8081:8080"
+      - "3306:3306"
     environment:
-      - SPRING_PROFILES_ACTIVE=postgres
-      - POSTGRES_URL=jdbc:postgresql://postgres:5432/petclinic
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - spring-petclinic
-
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_USER=petclinic
+      - MYSQL_PASSWORD=petclinic
+      - MYSQL_DATABASE=petclinic
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
   postgres:
-    image: postgres:14
-    mem_limit: 128m
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready --dbname $$POSTGRES_DB --username $$POSTGRES_USER"]
-      interval: 5s
-      timeout: 5s
-      retries: 6
+    image: postgres:15.2
     ports:
-      - "5433:5432"
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=petclinic
       - POSTGRES_USER=petclinic
       - POSTGRES_DB=petclinic
-    networks:
-      - spring-petclinic
-
-networks:
-  spring-petclinic:
-    driver: bridge
