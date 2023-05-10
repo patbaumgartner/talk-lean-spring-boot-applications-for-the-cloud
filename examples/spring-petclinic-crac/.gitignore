@@ -1,7 +1,6 @@
 target/*
 bin/*
 build/*
-crac-files/*
 .gradle/*
 .settings/*
 .classpath
@@ -16,3 +15,5 @@ crac-files/*
 _site/
 *.css
 !petclinic.css
+crac-files
+stats-restore
