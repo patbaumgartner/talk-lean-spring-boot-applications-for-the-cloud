@@ -3,12 +3,12 @@ FROM ubuntu:22.04
 ENV JAVA_HOME /opt/jdk
 ENV PATH $JAVA_HOME/bin:$PATH
 
-RUN apt-get update -y && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
-
-ADD "https://github.com/CRaC/openjdk-builds/releases/download/17-crac%2B5/openjdk-17-crac+5_linux-x64.tar.gz" $JAVA_HOME/openjdk.tar.gz
-
+ADD "https://cdn.azul.com/zulu/bin/zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz" $JAVA_HOME/openjdk.tar.gz
 RUN tar --extract --file $JAVA_HOME/openjdk.tar.gz --directory "$JAVA_HOME" --strip-components 1; rm $JAVA_HOME/openjdk.tar.gz;
+RUN mkdir -p /opt/app
+COPY target/spring-petclinic-crac-3.1.0-SNAPSHOT.jar /opt/app/spring-petclinic-crac-3.1.0-SNAPSHOT.jar
+COPY src/scripts/entrypoint-checkpoint.sh /opt/app/entrypoint-checkpoint.sh
+COPY src/scripts/entrypoint-restore.sh /opt/app/entrypoint-restore.sh
+RUN mkdir -p /opt/crac-files
 
-RUN chmod a+rwx /opt/ && mkdir -p /opt/crac-files
-
-COPY target/spring-petclinic-crac-*.jar /opt/app/my-app.jar
+ENTRYPOINT /opt/app/entrypoint-checkpoint.sh
