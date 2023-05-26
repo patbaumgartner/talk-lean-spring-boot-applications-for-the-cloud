@@ -38,7 +38,7 @@
 2. Run JAR with flag `-XX:CRaCCheckpointTo=crac-files`:
 
     ```bash
-    java -XX:CRaCCheckpointTo=crac-files -jar target/spring-petclinic-crac-3.0.0-SNAPSHOT.jar
+    java -XX:CRaCCheckpointTo=crac-files -jar target/spring-petclinic-crac-3.1.0-SNAPSHOT.jar
     ```
 
 3. Open a new terminal window, go to the spring-boot example and execute:
@@ -46,7 +46,7 @@
    ```bash
     siege -c 1 -r 10000 -b http://localhost:8080
 
-    jcmd target/spring-petclinic-crac-3.0.0-SNAPSHOT.jar JDK.checkpoint
+    jcmd target/spring-petclinic-crac-3.1.0-SNAPSHOT.jar JDK.checkpoint
    ```
 
 4. You should see the application killed and that `crac-files` directory has been created.
