@@ -125,13 +125,6 @@
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context-indexer</artifactId>
-      <scope>optional</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -224,6 +217,12 @@
                 <java.target>${java.version}</java.target>
               </additionalProperties>
             </configuration>
+          </execution>
+          <execution>
+            <id>process-aot</id>
+            <goals>
+                <goal>process-aot</goal>
+            </goals>
           </execution>
         </executions>
         <configuration>
