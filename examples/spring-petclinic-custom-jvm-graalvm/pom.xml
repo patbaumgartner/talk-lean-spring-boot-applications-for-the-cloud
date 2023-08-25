@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic-custom-jvm-graalvm</artifactId>
-  <version>3.1.0-SNAPSHOT</version>
+  <version>3.1.2-SNAPSHOT</version>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.0</version>
+    <version>3.1.2</version>
   </parent>
   <name>petclinic</name>
 
@@ -110,7 +110,27 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-testcontainers</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-docker-compose</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mysql</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -120,21 +140,20 @@
 
   </dependencies>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>${testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <build>
     <plugins>
-      <plugin>
-        <groupId>io.spring.javaformat</groupId>
-        <artifactId>spring-javaformat-maven-plugin</artifactId>
-        <version>${spring-format.version}</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>validate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -152,6 +171,19 @@
                 </requireJavaVersion>
               </rules>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.spring.javaformat</groupId>
+        <artifactId>spring-javaformat-maven-plugin</artifactId>
+        <version>${spring-format.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
@@ -214,18 +246,18 @@
         </executions>
         <configuration>
           <image>
-              <buildpacks>
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/adoptium:latest</buildpack> -->
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/amazon-corretto:latest</buildpack> -->
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/azul-zulu:latest</buildpack> -->
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:latest</buildpack> -->
-                  <!-- buildpack>gcr.io/paketo-buildpacks/eclipse-openj9:latest</buildpack -->
-                  <buildpack>gcr.io/paketo-buildpacks/graalvm:latest</buildpack>
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/sap-machine:latest</buildpack> -->
-                  <!-- <buildpack>gcr.io/paketo-buildpacks/oracle:latest</buildpack> -->
-                  <!-- Used to inherit all the other buildpacks -->
-                  <buildpack>gcr.io/paketo-buildpacks/java:latest</buildpack>
-              </buildpacks>
+            <buildpacks>
+              <!-- <buildpack>gcr.io/paketo-buildpacks/adoptium:latest</buildpack> -->
+              <!-- <buildpack>gcr.io/paketo-buildpacks/amazon-corretto:latest</buildpack> -->
+              <!-- <buildpack>gcr.io/paketo-buildpacks/azul-zulu:latest</buildpack> -->
+              <!-- <buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:latest</buildpack> -->
+              <!-- buildpack>gcr.io/paketo-buildpacks/eclipse-openj9:latest</buildpack -->
+              <buildpack>gcr.io/paketo-buildpacks/graalvm:latest</buildpack>
+              <!-- <buildpack>gcr.io/paketo-buildpacks/sap-machine:latest</buildpack> -->
+              <!-- <buildpack>gcr.io/paketo-buildpacks/oracle:latest</buildpack> -->
+              <!-- Used to inherit all the other buildpacks -->
+              <buildpack>gcr.io/paketo-buildpacks/java:latest</buildpack>
+            </buildpacks>
           </image>
         </configuration>
       </plugin>
