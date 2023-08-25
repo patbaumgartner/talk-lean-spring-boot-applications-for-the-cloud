@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic-crac</artifactId>
-  <version>3.1.0-SNAPSHOT</version>
+  <version>3.2.0-SNAPSHOT</version>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.0</version>
+    <version>3.2.0-SNAPSHOT</version>
   </parent>
   <name>petclinic</name>
 
@@ -33,22 +33,14 @@
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.39</spring-format.version>
 
-    <!-- CraC specific tomcat version -->
-		<tomcat.version>10.1.7</tomcat.version>
-		<spring-framework.version>6.1.0-SNAPSHOT</spring-framework.version>
   </properties>
 
   <dependencies>
-      <!-- CraC specific dependencies -->
-		<dependency>
-			<groupId>org.crac</groupId>
-			<artifactId>crac</artifactId>
-			<version>0.1.3</version>
-		</dependency>
+    <!-- CraC dependencies -->
     <dependency>
-      <groupId>io.github.crac.org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-      <version>${tomcat.version}</version>
+      <groupId>org.crac</groupId>
+      <artifactId>crac</artifactId>
+      <version>0.1.3</version>
     </dependency>
 
     <!-- Spring and Spring Boot dependencies -->
@@ -125,7 +117,27 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-testcontainers</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-docker-compose</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mysql</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -135,21 +147,20 @@
 
   </dependencies>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>${testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <build>
     <plugins>
-      <plugin>
-        <groupId>io.spring.javaformat</groupId>
-        <artifactId>spring-javaformat-maven-plugin</artifactId>
-        <version>${spring-format.version}</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>validate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -167,6 +178,19 @@
                 </requireJavaVersion>
               </rules>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.spring.javaformat</groupId>
+        <artifactId>spring-javaformat-maven-plugin</artifactId>
+        <version>${spring-format.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
@@ -260,20 +284,20 @@
       </plugin>
 
       <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <configuration>
-            <filesets>
-              <fileset>
-                <directory>${project.basedir}</directory>
-                <includes>
-                  <include>**/crac-files/</include>
-                  <include>**/stats-restore</include>
-                </includes>
-                <followSymlinks>false</followSymlinks>
-              </fileset>
-            </filesets>
-          </configuration>
-        </plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${project.basedir}</directory>
+              <includes>
+                <include>**/crac-files/</include>
+                <include>**/stats-restore</include>
+              </includes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
 
     </plugins>
   </build>
