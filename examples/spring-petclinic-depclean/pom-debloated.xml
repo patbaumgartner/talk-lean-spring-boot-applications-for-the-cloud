@@ -5,11 +5,11 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.2</version>
+    <version>3.1.4</version>
   </parent>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic-depclean</artifactId>
-  <version>3.1.2-SNAPSHOT</version>
+  <version>3.1.4-SNAPSHOT</version>
   <name>petclinic</name>
   <licenses>
     <license>
@@ -45,6 +45,13 @@
   </dependencyManagement>
   <dependencies>
     <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-observation</artifactId>
+      <version>1.11.4</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>mysql</artifactId>
       <version>1.18.3</version>
@@ -54,28 +61,28 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-observation</artifactId>
-      <version>1.11.2</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.4.11</version>
       <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test</artifactId>
-      <version>3.1.2</version>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>testcontainers</artifactId>
       <version>1.18.3</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test</artifactId>
+      <version>3.1.4</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
@@ -89,25 +96,15 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.thymeleaf</groupId>
-      <artifactId>thymeleaf</artifactId>
-      <version>3.1.1.RELEASE</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+      <version>3.1.4</version>
       <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.unbescape</groupId>
-          <artifactId>unbescape</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.attoparser</groupId>
-          <artifactId>attoparser</artifactId>
-        </exclusion>
-      </exclusions>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -134,28 +131,14 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
-      <version>6.0.11</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>3.1.2</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>6.0.11</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jcl</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -164,6 +147,13 @@
       <artifactId>hamcrest</artifactId>
       <version>2.2</version>
       <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jcl</artifactId>
+      <version>6.0.12</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -197,7 +187,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -237,16 +227,16 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.hibernate.orm</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>6.2.6.Final</version>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>8.0.1.Final</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.hibernate.validator</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>8.0.1.Final</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.4.11</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -286,30 +276,9 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-testcontainers</artifactId>
-      <version>3.1.2</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
-      <version>10.1.11</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-jpa</artifactId>
-      <version>3.1.2</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>6.0.11</version>
+      <version>10.1.13</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -321,10 +290,44 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>6.0.12</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.jetbrains</groupId>
       <artifactId>annotations</artifactId>
       <version>17.0.0</version>
       <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-testcontainers</artifactId>
+      <version>3.1.4</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>3.1.4</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
+      <version>3.1.8</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.errorprone</groupId>
+          <artifactId>error_prone_annotations</artifactId>
+        </exclusion>
+      </exclusions>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -362,19 +365,6 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.github.ben-manes.caffeine</groupId>
-      <artifactId>caffeine</artifactId>
-      <version>3.1.6</version>
-      <scope>compile</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.errorprone</groupId>
-          <artifactId>error_prone_annotations</artifactId>
-        </exclusion>
-      </exclusions>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>org.apiguardian</groupId>
       <artifactId>apiguardian-api</artifactId>
       <version>1.1.2</version>
@@ -403,6 +393,13 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-websocket</artifactId>
+      <version>10.1.13</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>2.15.2</version>
@@ -424,16 +421,16 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.antlr</groupId>
-      <artifactId>antlr4-runtime</artifactId>
-      <version>4.10.1</version>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+      <version>3.1.4</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-websocket</artifactId>
-      <version>10.1.11</version>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4-runtime</artifactId>
+      <version>4.10.1</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -445,24 +442,17 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-commons</artifactId>
-      <version>3.1.2</version>
-      <scope>compile</scope>
+      <groupId>org.skyscreamer</groupId>
+      <artifactId>jsonassert</artifactId>
+      <version>1.5.1</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>2.0.7</version>
+      <version>2.0.9</version>
       <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.skyscreamer</groupId>
-      <artifactId>jsonassert</artifactId>
-      <version>1.5.1</version>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -473,16 +463,16 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>6.0.11</version>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>4.0.1</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>jakarta.xml.bind</groupId>
-      <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>4.0.0</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -491,13 +481,6 @@
       <artifactId>android-json</artifactId>
       <version>0.0.20131108.vaadin1</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.4.8</version>
-      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -515,10 +498,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.9.19</version>
-      <scope>compile</scope>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <version>1.14.8</version>
+      <scope>runtime</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -533,13 +516,6 @@
       <artifactId>assertj-core</artifactId>
       <version>3.24.2</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy</artifactId>
-      <version>1.14.5</version>
-      <scope>runtime</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -559,7 +535,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -578,23 +554,23 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>1.4.8</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy-agent</artifactId>
-      <version>1.14.5</version>
+      <version>1.14.8</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.2.9.Final</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -606,9 +582,9 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>6.0.11</version>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.20</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -620,6 +596,13 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>6.0.12</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>jakarta.inject</groupId>
       <artifactId>jakarta.inject-api</artifactId>
       <version>2.0.1</version>
@@ -627,9 +610,16 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot</artifactId>
+      <version>3.1.4</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
@@ -641,13 +631,6 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot</artifactId>
-      <version>3.1.2</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
       <version>4.0.3</version>
@@ -655,23 +638,40 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test-autoconfigure</artifactId>
-      <version>3.1.2</version>
-      <scope>test</scope>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>3.1.2.RELEASE</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.unbescape</groupId>
+          <artifactId>unbescape</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.attoparser</groupId>
+          <artifactId>attoparser</artifactId>
+        </exclusion>
+      </exclusions>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-el</artifactId>
-      <version>10.1.11</version>
-      <scope>compile</scope>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test-autoconfigure</artifactId>
+      <version>3.1.4</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
       <version>3.5.3.Final</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-el</artifactId>
+      <version>10.1.13</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -720,7 +720,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -734,14 +734,14 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-commons</artifactId>
-      <version>1.11.2</version>
+      <version>1.11.4</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
-      <version>6.0.11</version>
+      <version>6.0.12</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
