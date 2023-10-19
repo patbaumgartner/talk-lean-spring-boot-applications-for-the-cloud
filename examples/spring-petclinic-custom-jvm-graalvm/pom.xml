@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic-custom-jvm-graalvm</artifactId>
-  <version>3.1.2-SNAPSHOT</version>
+  <version>3.1.4-SNAPSHOT</version>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.2</version>
+    <version>3.1.4</version>
   </parent>
   <name>petclinic</name>
 
@@ -251,7 +251,7 @@
               <!-- <buildpack>gcr.io/paketo-buildpacks/amazon-corretto:latest</buildpack> -->
               <!-- <buildpack>gcr.io/paketo-buildpacks/azul-zulu:latest</buildpack> -->
               <!-- <buildpack>gcr.io/paketo-buildpacks/bellsoft-liberica:latest</buildpack> -->
-              <!-- buildpack>gcr.io/paketo-buildpacks/eclipse-openj9:latest</buildpack -->
+              <!-- <buildpack>gcr.io/paketo-buildpacks/eclipse-openj9:latest</buildpack -->
               <buildpack>gcr.io/paketo-buildpacks/graalvm:latest</buildpack>
               <!-- <buildpack>gcr.io/paketo-buildpacks/sap-machine:latest</buildpack> -->
               <!-- <buildpack>gcr.io/paketo-buildpacks/oracle:latest</buildpack> -->
