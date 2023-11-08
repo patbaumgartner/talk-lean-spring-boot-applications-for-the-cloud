@@ -1,7 +1,7 @@
 # Lean Spring Boot Applications for The Cloud
 
 With the starters, Spring-Boot offers a functionality that allows you to set up a new software project with little effort and start programming right away. You don't have to worry about the dependencies since the "right" ones are already preconfigured. But how can you, for example, optimize the start-up times and reduce the memoryfootprint and thus better prepare the application for the cloud?
-In this talk, we will go into Spring-Boot features like "spring-context-indexer", classpath exclusions, lazy spring beans, actuator, JMX. In addition, we also look at switching to a different JVM and other tools.
+In this talk, we will go into Spring-Boot features like , AOT, classpath exclusions, lazy spring beans, actuator, JMX. In addition, we also look at switching to a different JVM and other tools.
 
 Let's make Spring Boot great again!
 
