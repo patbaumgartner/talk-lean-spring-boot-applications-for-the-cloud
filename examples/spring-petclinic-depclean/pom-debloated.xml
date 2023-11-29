@@ -5,11 +5,11 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.5</version>
+    <version>3.2.0</version>
   </parent>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic-depclean</artifactId>
-  <version>3.1.5-SNAPSHOT</version>
+  <version>3.2.0-SNAPSHOT</version>
   <name>petclinic</name>
   <licenses>
     <license>
@@ -18,57 +18,39 @@
     </license>
   </licenses>
   <properties>
-    <spring-format.version>0.0.39</spring-format.version>
+    <spring-format.version>0.0.40</spring-format.version>
     <java.version>17</java.version>
     <webjars-font-awesome.version>4.7.0</webjars-font-awesome.version>
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
-    <jacoco.version>0.8.10</jacoco.version>
+    <jacoco.version>0.8.11</jacoco.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <libsass.version>0.2.29</libsass.version>
     <lifecycle-mapping>1.0.0</lifecycle-mapping>
-    <checkstyle.version>10.11.0</checkstyle.version>
+    <checkstyle.version>10.12.5</checkstyle.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.outputTimestamp>2023-05-10T07:42:50Z</project.build.outputTimestamp>
-    <maven-checkstyle.version>3.2.2</maven-checkstyle.version>
-    <webjars-bootstrap.version>5.2.3</webjars-bootstrap.version>
+    <maven-checkstyle.version>3.3.1</maven-checkstyle.version>
+    <webjars-bootstrap.version>5.3.2</webjars-bootstrap.version>
   </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>testcontainers-bom</artifactId>
-        <version>${testcontainers.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-observation</artifactId>
-      <version>1.11.5</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test</artifactId>
-      <version>3.1.5</version>
+      <groupId>com.github.docker-java</groupId>
+      <artifactId>docker-java-transport-zerodep</artifactId>
+      <version>3.3.4</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>mysql</artifactId>
-      <version>1.18.3</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.10.1</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-compress</artifactId>
+      <version>1.24.0</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
@@ -80,31 +62,24 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>testcontainers</artifactId>
-      <version>1.18.3</version>
-      <scope>test</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.github.docker-java</groupId>
-      <artifactId>docker-java-transport-zerodep</artifactId>
-      <version>3.3.0</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.10.1</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>3.1.5</version>
-      <scope>compile</scope>
+      <artifactId>spring-test</artifactId>
+      <version>6.1.1</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -115,10 +90,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>1.18.3</version>
-      <scope>test</scope>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-to-slf4j</artifactId>
+      <version>2.21.1</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -129,16 +104,23 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aop</artifactId>
-      <version>6.0.13</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-testcontainers</artifactId>
+      <version>3.2.0</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>3.2.0</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aspects</artifactId>
-      <version>6.0.13</version>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.21.1</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -157,52 +139,59 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jcl</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml</groupId>
-      <artifactId>classmate</artifactId>
-      <version>1.5.1</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>2.4.11</version>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+      <version>5.13.0</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>io.smallrye</groupId>
-      <artifactId>jandex</artifactId>
-      <version>3.0.5</version>
-      <scope>runtime</scope>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot</artifactId>
+      <version>3.2.0</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-engine</artifactId>
+      <version>1.10.1</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.opentest4j</groupId>
+      <artifactId>opentest4j</artifactId>
+      <version>1.3.0</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.9.3</version>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.10.1</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>2.1.214</version>
-      <scope>runtime</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>database-commons</artifactId>
+      <version>1.19.3</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+      <version>3.2.0</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -213,9 +202,16 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.github.docker-java</groupId>
-      <artifactId>docker-java-api</artifactId>
-      <version>3.3.0</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test</artifactId>
+      <version>3.2.0</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <version>1.19.3</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
@@ -250,29 +246,22 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-core</artifactId>
-      <version>4.0.3</version>
+      <version>4.0.4</version>
       <scope>runtime</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>accessors-smart</artifactId>
-      <version>2.4.11</version>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
-      <version>10.1.15</version>
+      <version>10.1.16</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-to-slf4j</artifactId>
-      <version>2.20.0</version>
-      <scope>compile</scope>
+      <groupId>net.minidev</groupId>
+      <artifactId>json-smart</artifactId>
+      <version>2.5.0</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -283,10 +272,17 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-testcontainers</artifactId>
-      <version>3.1.5</version>
+      <groupId>com.github.docker-java</groupId>
+      <artifactId>docker-java-api</artifactId>
+      <version>3.3.4</version>
       <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+      <version>3.2.0</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -297,24 +293,17 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jcl</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.jetbrains</groupId>
       <artifactId>annotations</artifactId>
       <version>17.0.0</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-jpa</artifactId>
-      <version>3.1.5</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -328,13 +317,6 @@
           <artifactId>error_prone_annotations</artifactId>
         </exclusion>
       </exclusions>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>5.3.1</version>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -358,10 +340,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.20.0</version>
-      <scope>compile</scope>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -372,10 +354,17 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <version>5.9.3</version>
-      <scope>test</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml</groupId>
+      <artifactId>classmate</artifactId>
+      <version>1.6.0</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -400,24 +389,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-commons</artifactId>
-      <version>3.1.5</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-websocket</artifactId>
-      <version>10.1.15</version>
+      <version>10.1.16</version>
       <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>database-commons</artifactId>
-      <version>1.18.3</version>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -456,9 +431,23 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-commons</artifactId>
-      <version>1.9.3</version>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <version>1.14.10</version>
+      <scope>runtime</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>net.minidev</groupId>
+      <artifactId>accessors-smart</artifactId>
+      <version>2.5.0</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
@@ -471,9 +460,16 @@
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>6.0.13</version>
+      <artifactId>spring-aop</artifactId>
+      <version>6.1.1</version>
       <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.github.docker-java</groupId>
+      <artifactId>docker-java-transport</artifactId>
+      <version>3.3.4</version>
+      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -484,24 +480,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.9.3</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-test-autoconfigure</artifactId>
+      <version>3.2.0</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-engine</artifactId>
-      <version>1.9.3</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -512,17 +494,17 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy</artifactId>
-      <version>1.14.9</version>
-      <scope>runtime</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.24.2</version>
       <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.20.1</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -535,57 +517,71 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>txw2</artifactId>
-      <version>4.0.3</version>
+      <version>4.0.4</version>
       <scope>runtime</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-commons</artifactId>
+      <version>1.12.0</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.testcontainers</groupId>
-      <artifactId>jdbc</artifactId>
-      <version>1.18.3</version>
+      <artifactId>mysql</artifactId>
+      <version>1.19.3</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy-agent</artifactId>
-      <version>1.14.9</version>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-commons</artifactId>
+      <version>1.10.1</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.github.docker-java</groupId>
-      <artifactId>docker-java-transport</artifactId>
-      <version>3.3.0</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context-support</artifactId>
-      <version>6.0.13</version>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-observation</artifactId>
+      <version>1.12.0</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-compress</artifactId>
-      <version>1.23.0</version>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-parameter-names</artifactId>
+      <version>2.15.3</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.9.20</version>
-      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -603,31 +599,10 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot</artifactId>
-      <version>3.1.5</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>com.jayway.jsonpath</groupId>
       <artifactId>json-path</artifactId>
       <version>2.8.0</version>
       <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.orm</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>6.2.13.Final</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jaxb</groupId>
-      <artifactId>jaxb-runtime</artifactId>
-      <version>4.0.3</version>
-      <scope>runtime</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -648,23 +623,37 @@
       <optional>false</optional>
     </dependency>
     <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>1.19.3</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <version>4.0.4</version>
+      <scope>runtime</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>8.1.0</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>6.0.13</version>
-      <scope>test</scope>
+      <artifactId>spring-beans</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-test-autoconfigure</artifactId>
-      <version>3.1.5</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-commons</artifactId>
-      <version>1.11.5</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>6.1.1</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -676,13 +665,6 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>net.java.dev.jna</groupId>
-      <artifactId>jna</artifactId>
-      <version>5.12.1</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
       <groupId>jakarta.persistence</groupId>
       <artifactId>jakarta.persistence-api</artifactId>
       <version>3.1.0</version>
@@ -690,17 +672,45 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.9.3</version>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>jdbc</artifactId>
+      <version>1.19.3</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.3.1</version>
+      <version>5.7.0</version>
       <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.3.1.Final</version>
+      <scope>compile</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy-agent</artifactId>
+      <version>1.14.10</version>
+      <scope>test</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.smallrye</groupId>
+      <artifactId>jandex</artifactId>
+      <version>3.1.2</version>
+      <scope>runtime</scope>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>6.1.1</version>
+      <scope>compile</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
@@ -711,37 +721,23 @@
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>org.opentest4j</groupId>
-      <artifactId>opentest4j</artifactId>
-      <version>1.2.0</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.1</version>
       <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
-      <groupId>com.mysql</groupId>
-      <artifactId>mysql-connector-j</artifactId>
-      <version>8.0.33</version>
-      <scope>test</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-expression</artifactId>
-      <version>6.0.13</version>
-      <scope>compile</scope>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.2.224</version>
+      <scope>runtime</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-el</artifactId>
-      <version>10.1.15</version>
-      <scope>compile</scope>
-      <optional>false</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>6.0.13</version>
+      <version>10.1.16</version>
       <scope>compile</scope>
       <optional>false</optional>
     </dependency>
@@ -795,7 +791,8 @@
             <configuration>
               <rules>
                 <requireJavaVersion>
-                  <message>This build requires at least Java ${java.version}, update your JVM, and run the build again</message>
+                  <message>This build requires at least Java ${java.version}, update your JVM, and
+                    run the build again</message>
                   <version>${java.version}</version>
                 </requireJavaVersion>
               </rules>

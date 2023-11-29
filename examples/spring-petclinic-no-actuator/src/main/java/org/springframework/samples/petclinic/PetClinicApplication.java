@@ -19,6 +19,8 @@ package org.springframework.samples.petclinic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.context.ApplicationContext;
+import java.util.Arrays;
 
 /**
  * PetClinic Spring Boot Application.
@@ -31,7 +33,8 @@ import org.springframework.context.annotation.ImportRuntimeHints;
 public class PetClinicApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetClinicApplication.class, args);
+		ApplicationContext ctx = SpringApplication.run(PetClinicApplication.class, args);
+		System.out.printf("Number of Spring Beans %d", Arrays.asList(ctx.getBeanDefinitionNames()).size());
 	}
 
 }
