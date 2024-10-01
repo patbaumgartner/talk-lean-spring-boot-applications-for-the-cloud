@@ -1,7 +1,8 @@
 # Lean Spring Boot Applications for The Cloud
 
-With the starters, Spring-Boot offers a functionality that allows you to set up a new software project with little effort and start programming right away. You don't have to worry about the dependencies since the "right" ones are already preconfigured. But how can you, for example, optimize the start-up times and reduce the memoryfootprint and thus better prepare the application for the cloud?
-In this talk, we will go into Spring-Boot features like , AOT, classpath exclusions, lazy spring beans, actuator, JMX. In addition, we also look at switching to a different JVM and other tools.
+With the starters, Spring-Boot offers a functionality that allows you to set up a new software project with little effort and start programming right away. You don't have to worry about the dependencies, since the "right" ones are already preconfigured. But how can you, for example, optimize the start-up times and reduce the memory footprint and thus better prepare the application for the cloud?
+
+In this talk, we will go into Spring-Boot features like Spring AOT, classpath exclusions, lazy spring beans, actuator, and more. In addition, we're also looking at switching to a different JVM and other tools. All state-of-the-art technology, of course.
 
 Let's make Spring Boot great again!
 
@@ -15,4 +16,4 @@ Patrick Baumgartner works as a passionate software crafter, coach, and trainer a
 
 Learning new stuff from others and with others is a thing Patrick enjoys very much. Because of this, he is actively involved in the software crafters, Java and Spring, and the agile community.
 
-He likes to make a difference, running experiments, and having discussions with a wee dram.
+He likes to make a difference, running experiments, and enjoys having insightful discussions while savoring a sip of whisky.
